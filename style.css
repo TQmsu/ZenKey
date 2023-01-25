@@ -1,0 +1,47 @@
+.box {
+  width: 1500px;
+  height: 450px;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid black;
+  }
+  
+    
+  
+.box1 {
+  margin-bottom: 10px;
+}
+  
+.box:nth-child(2) {  
+  background-color:rgba(247, 154, 247, 0.5): 
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+    
+.keyboard {  
+  top: 200;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(4, 1fr);  
+  grid-gap: 5px;
+}
+      
+.keyboard button {  
+  background-color: rgba(58, 57, 57, 0.24);
+  border: none;
+  height: 100%;
+  padding: 10px 20px;
+  font-size: 20px;
+  margin: 5px;
+  border: 1px solid white;
+  color: white;
+}
+  
+.keyboard button:hover {  
+  background-color: rgba(0, 0, 0, 0.5);
+}
+  
+.keyboard button:active,  
+.keyboard button:focus {  
+  color: white;
+}

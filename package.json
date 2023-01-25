@@ -1,0 +1,11 @@
+{
+  "name": "zenkey",
+  "version": "1.0.0",
+  "description": "zenkey first prototype",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "ltq",
+  "license": "ISC"
+}

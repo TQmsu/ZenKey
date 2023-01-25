@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div class="box box1">
+        <p>Text Box</p>
+    </div>
+    <div class="box box2">
+        <p>ZenKey's First Prototype</p>
+        <p>.</p>
+        <p>.</p>
+        <div class="keyboard">
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <button>0</button>
+          <button>Q</button>
+          <button>W</button>
+          <button>E</button>
+          <button>R</button>
+          <button>T</button>
+          <button>Y</button>
+          <button>U</button>
+          <button>I</button>
+          <button>O</button>
+          <button>P</button>
+          <button>A</button>
+          <button>S</button>
+          <button>D</button>
+          <button>F</button>
+          <button>G</button>
+          <button>H</button>
+          <button>J</button>
+          <button>K</button>
+          <button>L</button>
+          <button>Enter</button>
+          <button>z</button>
+          <button>X</button>
+          <button>C</button>
+          <button>V</button>
+          <button>B</button>
+          <button>N</button>
+          <button>M</button>
+          <button>Space</button>
+          <button>Backspace</button>
+          <button>Shift</button>
+      </div>      
+    </div>
+    <script>
+      let buttonPresses = 0;
+      let startTime = new Date();
+      const secondBox = document.querySelector(".box2");
+      const keyboardButtons = document.querySelectorAll(".keyboard button");
+      const topBox = document.querySelector(".box1");
+      
+      setInterval(() => {
+        const currentTime = new Date();
+        const timeElapsed = (currentTime - startTime) / 1000;
+        const buttonPressesPerMinute = buttonPresses / timeElapsed * 60;
+        if (buttonPressesPerMinute < 20) {
+          let randomNumber = Math.floor(Math.random() * (20 - 1 + 1) + 1);
+          let imageFile = `g_${randomNumber}.png`;
+          secondBox.style.backgroundImage = `url('./background_images/${imageFile}')`;
+        } else if (buttonPressesPerMinute >= 20 && buttonPressesPerMinute < 60) {
+          let randomNumber = Math.floor(Math.random() * (20 - 1 + 1) + 1);
+          let imageFile = `b_${randomNumber}.png`;
+          secondBox.style.backgroundImage = `url('./background_images/${imageFile}')`;
+        } else if (buttonPressesPerMinute >= 50) {
+          let randomNumber = Math.floor(Math.random() * (20 - 1 + 1) + 1);
+          let imageFile = `r_${randomNumber}.png`;
+          secondBox.style.backgroundImage = `url('./background_images/${imageFile}')`;
+        }
+      }, 5000);
+    
+      keyboardButtons.forEach(button => {
+        button.addEventListener("click", event => {
+          buttonPresses++;
+          const buttonValue = event.target.innerHTML;
+          if (buttonValue === "Enter") {
+            topBox.innerHTML += "<br>";
+          } else if (buttonValue === "Space") {
+            topBox.innerHTML += " ";
+          } else if (buttonValue === "Backspace") {
+            topBox.innerHTML = topBox.innerHTML.slice(0, -1);
+          } else {
+            topBox.innerHTML += buttonValue.toLowerCase();
+          }
+        });
+      });
+    </script>
+    
+  </body>
+</html>
